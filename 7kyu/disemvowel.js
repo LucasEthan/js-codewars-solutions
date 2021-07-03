@@ -6,13 +6,12 @@
 
 // console.log(disemvowel("This website is for losers LOL!"));
 
-
-  function disemvowel(str) {
+   function disemvowel(str) {
     let newString = "";
-    for (char of str) {
+    for (let i = 0; i < str.length; i++) {
       let vowels = "aeiou";
-      if (!vowels.includes(char.toLowerCase())) {
-        newString += char;
+      if (!vowels.includes(str[i].toLowerCase())) {
+        newString += str[i];
       }
     }
     return newString;
