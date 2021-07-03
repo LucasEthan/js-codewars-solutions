@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
 function oddOrEven(array) {
-  sum = array.reduce((a, b) => a + b, 0);
+  let sum = array.reduce((num, total) => num + total, 0); 
 
-  if (Math.abs((sum % 2)) == 1) {
-    return "Odd";
-  } if ((sum % 2) == 0) {
-    return "Even";
+  if (!(sum % 2)) {
+    return "even";
   } else {
-    return "Even";
+    return "odd";
   }
 }
+
+ary = []
+console.log(oddOrEven(ary))
