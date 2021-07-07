@@ -1,12 +1,5 @@
 function filter_list(l) {
-  let newList = [];
-
-  for (elem of l) {
-    if (typeof(elem) == "number") {
-      newList.push(elem)
-    }
-  }
-  return newList;
+  return l.filter(elem => typeof(elem) == "number");
 }
 
 console.log(filter_list([0 , -2, 15, 'a', 'b']));
