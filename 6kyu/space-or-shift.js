@@ -9,7 +9,7 @@ function getOrder(input) {
       order = ""
     }
   }
-  return orders.map((order) => order[0].toUpperCase() + order.slice(1)).join(" ")
+  return orders.sort((a, b) => menu.indexOf(a) - menu.indexOf(b)).map((order) => order[0].toUpperCase() + order.slice(1)).join(" ")
 }
 
 console.log(getOrder("milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza"))
