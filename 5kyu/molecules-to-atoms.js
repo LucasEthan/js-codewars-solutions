@@ -9,7 +9,7 @@ function parseMolecule(formula) {
   for (let char of formula) {
     if (char.charCodeAt(0) >= 65 && char.charCodeAt(0) <= 90) {
       if (elem) { 
-        numAtoms = !strAtoms ? parseInt(strAtoms) : 1
+        numAtoms = strAtoms ? parseInt(strAtoms) : 1
         atoms[elem] = numAtoms
 
         strAtoms = ""
@@ -19,10 +19,11 @@ function parseMolecule(formula) {
       elem += char
     } else if (char.charCodeAt(0) >= 48 && char.charCodeAt(0) <= 57) {
       strAtoms += char
+      
     }
   }
-  atoms[elem] = !strAtoms ? parseInt(strAtoms) : 1
+  atoms[elem] = strAtoms ? parseInt(strAtoms) : 1
   return atoms
 }
 
-console.log(parseMolecule("Na3Cl"))
+console.log(parseMolecule("NaClO"))
