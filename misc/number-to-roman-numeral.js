@@ -1,114 +1,70 @@
 function intToRoman(num) {
-  const thousands = Math.floor(num / 1000);
   let romanNums = "";
 
-  switch (thousands) {
-    case 1:
-      romanNums += "M";
-      break;
-    case 2:
-      romanNums += "MM";
-      break;
-    case 3:
-      romanNums += "MMM";
-      break;
-  }
+  const romanThousands = {
+    0: "",
+    1: "M",
+    2: "MM",
+    3: "MMM",
+  };
 
-  num = num % 1000;
-  const hundreds = Math.floor(num / 100);
+  const romanHundreds = {
+    0: "",
+    1: "C",
+    2: "CC",
+    3: "CCC",
+    4: "CD",
+    5: "D",
+    6: "DC",
+    7: "DCC",
+    8: "DCCC",
+    9: "DM",
+  };
 
-  switch (hundreds) {
-    case 1:
-      romanNums += "C";
-      break;
-    case 2:
-      romanNums += "CC";
-      break;
-    case 3:
-      romanNums += "CCC";
-      break;
-    case 4:
-      romanNums += "CD";
-      break;
-    case 5:
-      romanNums += "D";
-      break;
-    case 6:
-      romanNums += "DC";
-      break;
-    case 7:
-      romanNums += "DCC";
-      break;
-    case 8:
-      romanNums += "DCCC";
-      break;
-    case 9:
-      romanNums += "CM";
-      break;
-  }
+  const romanTens = {
+    0: "",
+    1: "X",
+    2: "XX",
+    3: "XXX",
+    4: "XL",
+    5: "L",
+    6: "LX",
+    7: "LXX",
+    8: "LXXX",
+    9: "XC",
+  };
 
-  num = num % 100;
-  const tens = Math.floor(num / 10);
+  const romanOnes = {
+    0: "",
+    1: "I",
+    2: "II",
+    3: "III",
+    4: "IV",
+    5: "V",
+    6: "VI",
+    7: "VII",
+    8: "VIII",
+    9: "IX",
+  };
 
-  switch (tens) {
-    case 1:
-      romanNums += "X";
-      break;
-    case 2:
-      romanNums += "XX";
-      break;
-    case 3:
-      romanNums += "XXX";
-      break;
-    case 4:
-      romanNums += "XL";
-      break;
-    case 5:
-      romanNums += "L";
-      break;
-    case 6:
-      romanNums += "LX";
-      break;
-    case 7:
-      romanNums += "LXX";
-      break;
-    case 8:
-      romanNums += "LXXX";
-      break;
-    case 9:
-      romanNums += "XC";
-  }
+  let thousands = Math.floor(num / 1000);
+  num %= 1000;
 
-  num = num % 10;
+  let hundreds = Math.floor(num / 100);
+  num %= 100;
 
-  switch (num) {
-    case 1:
-      romanNums += "I";
-      break;
-    case 2:
-      romanNums += "II";
-      break;
-    case 3:
-      romanNums += "III";
-      break;
-    case 4:
-      romanNums += "IV";
-      break;
-    case 5:
-      romanNums += "V";
-      break;
-    case 6:
-      romanNums += "VI";
-      break;
-    case 7:
-      romanNums += "VII";
-      break;
-    case 8:
-      romanNums += "VIII";
-      break;
-    case 9:
-      romanNums += "IX";
-      break;
-  }
+  let tens = Math.floor(num / 10);
+  num %= 10;
+
+  let ones = num;
+
+  romanNums =
+    romanThousands[thousands] +
+    romanHundreds[hundreds] +
+    romanTens[tens] +
+    romanOnes[ones];
+
   return romanNums;
 }
+
+console.log(intToRoman(1492));
