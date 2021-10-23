@@ -37,7 +37,8 @@ function solution(roman) {
     I: 1,
   };
 
-  for (romanNum in romanConversion) {
+  for (romanNum of Object.getOwnPropertyNames(romanConversion)) {
+    
     if (roman.startsWith(romanNum)) {
       num += romanConversion[romanNum];
       roman = roman.slice(romanNum.length);
@@ -46,4 +47,4 @@ function solution(roman) {
   return num;
 }
 
-console.log(solution("MMCC"));
+console.log(solution("CDLXXVI"));
