@@ -5,15 +5,16 @@ function bouncingBall(h, bounce, window) {
 
   let timesSeen = 1;
 
-  while (true) {
+  do {
     h *= bounce;
-    if (h > window) {
+    var ballSeen = h > window;
+    if (ballSeen) {
       timesSeen += 2;
-    } else {
-      break;
     }
-  }
+  } while (ballSeen);
+
   return timesSeen;
 }
 
-console.log(bouncingBall(100, 15, 1.5));
+
+console.log(bouncingBall(100, 0.4, 50));
